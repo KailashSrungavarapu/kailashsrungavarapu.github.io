@@ -31,8 +31,6 @@
   }
   a{color:inherit;}
   .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
-
-  /* ---- Title block header, styled like a drawing sheet ---- */
   header.titleblock{
     border-bottom:2px solid var(--ink);
     background:var(--white);
@@ -92,7 +90,6 @@
     color:var(--ink-soft);
   }
   .tb-strip div:last-child{border-right:none; margin-left:auto;}
-
   nav.jump{
     display:flex; gap:0;
     max-width:1040px; margin:0 auto;
@@ -115,8 +112,6 @@
   }
   nav.jump a:last-child{border-right:none;}
   nav.jump a:hover{background:var(--paper); color:var(--ink);}
-
-  /* ---- Section labels: dimension-line style ---- */
   .sheet-label{
     display:flex; align-items:center; gap:14px;
     margin:64px 0 28px 0;
@@ -140,8 +135,6 @@
     color:var(--blue);
     white-space:nowrap;
   }
-
-  /* ---- Project cards ---- */
   .project{
     background:var(--white);
     border:1.5px solid var(--ink);
@@ -215,7 +208,6 @@
   }
   .files a:hover{background:var(--ink); color:var(--white);}
   .files a::before{content:'↓';}
-
   .project.pending{opacity:0.55;}
   .project.pending .project-strip{background:var(--paper);}
   .pending-note{
@@ -225,8 +217,6 @@
     padding:40px 30px;
     text-align:center;
   }
-
-  /* ---- Skills ---- */
   .skills-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
@@ -245,7 +235,6 @@
     margin-bottom:10px;
   }
   .skill-block p{font-size:13.5px; color:var(--ink-soft);}
-
   footer{
     border-top:1.5px solid var(--ink);
     padding:28px 0 40px 0;
@@ -255,7 +244,6 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
   footer a{color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-dim);}
-
   @media (max-width:600px){
     .tb-grid{grid-template-columns:1fr;}
     .tb-divider{display:none;}
@@ -315,7 +303,6 @@
     <div class="dim-line"></div>
   </div>
 
-  <!-- Sensor Mount Assembly -->
   <div class="project">
     <div class="project-strip">
       <span>Drawing No. PORT-003</span>
@@ -323,11 +310,10 @@
     </div>
     <div class="project-body">
       <div class="project-media">
-        <img src="assets/sensor_mount_iso.png" alt="Adjustable sensor mount assembly, isometric view">
+        <img src="sensor_mount_iso.png" alt="Adjustable sensor mount assembly, isometric view">
       </div>
       <div class="project-content">
         <div class="project-title">Adjustable Sensor / Camera Mount Assembly</div>
-
         <div class="stage">
           <div class="stage-label">Requirement</div>
           <div class="stage-text">Mount a sensor or camera to a vehicle frame or equipment chassis, with the ability to adjust viewing angle after installation.</div>
@@ -344,22 +330,19 @@
           <div class="stage-label">Result</div>
           <div class="stage-text">Working mechanism — the arm and sensor plate pivot together as one rigid unit around the base, fully constrained by 7 mates (Concentric + Coincident).</div>
         </div>
-
         <div class="stack">
           <span>SolidWorks</span>
           <span>Assembly Mates</span>
           <span>GD&T</span>
           <span>Al 6061-T6</span>
         </div>
-
         <div class="files">
-          <a href="assets/sensor_mount_assembly.step">Assembly (STEP)</a>
+          <a href="sensor_mount_assembly.step">Assembly (STEP)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Mounting Bracket -->
   <div class="project">
     <div class="project-strip">
       <span>Drawing No. PORT-001</span>
@@ -367,11 +350,10 @@
     </div>
     <div class="project-body">
       <div class="project-media">
-        <img src="assets/bracket_iso.png" alt="Universal equipment mounting bracket, isometric view">
+        <img src="bracket_iso.png" alt="Universal equipment mounting bracket, isometric view">
       </div>
       <div class="project-content">
         <div class="project-title">Universal Equipment Mounting Bracket</div>
-
         <div class="stage">
           <div class="stage-label">Requirement</div>
           <div class="stage-text">A general-purpose L-bracket to mount a motor, pump, or sensor to a wall or frame, resisting a cantilevered bending load.</div>
@@ -384,22 +366,19 @@
           <div class="stage-label">Result</div>
           <div class="stage-text">Full 2D AutoCAD drawing (top / front / side views, dimensioned) alongside a parametric 3D model — same part, two toolchains.</div>
         </div>
-
         <div class="stack">
           <span>AutoCAD 2D/3D</span>
           <span>Al 6061-T6</span>
           <span>Stress Reduction</span>
         </div>
-
         <div class="files">
-          <a href="assets/mounting_bracket.step">3D Model (STEP)</a>
-          <a href="assets/mounting_bracket_drawing.dxf">2D Drawing (DXF)</a>
+          <a href="mounting_bracket.step">3D Model (STEP)</a>
+          <a href="mounting_bracket_drawing.dxf">2D Drawing (DXF)</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HVAC — pending -->
   <div class="project pending">
     <div class="project-strip">
       <span>Drawing No. PORT-002</span>
