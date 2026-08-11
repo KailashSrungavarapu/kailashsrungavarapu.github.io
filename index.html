@@ -329,7 +329,7 @@
           <span>Al 6061-T6</span>
         </div>
         <div class="files">
-         <a href="sensor_mount_assembly.SLDASM">Assembly (SLDASM)</a>
+          <a href="sensor_mount_assembly.SLDASM">Assembly (SLDASM)</a>
         </div>
       </div>
     </div>
@@ -404,6 +404,45 @@
         <div class="files">
           <a href="mounting_bracket.step">3D Model (STEP)</a>
           <a href="mounting_bracket_drawing.dxf">2D Drawing (DXF)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="project-strip">
+      <span>Drawing No. PORT-004</span>
+      <span>ANSYS Fluent, CFD</span>
+    </div>
+    <div class="project-body">
+      <div class="project-media">
+        <img src="multispecies.png" alt="CFD contour plot of CO mass fraction from vehicle exhaust at idle">
+      </div>
+      <div class="project-content">
+        <div class="project-title">Vehicle Idle Emission Dispersion — Multispecies CFD Analysis</div>
+        <div class="stage">
+          <div class="stage-label">Requirement</div>
+          <div class="stage-text">Quantify how exhaust gases (CO, CO2, H2O, N2, O2) from a vehicle idling inside an enclosed garage disperse and concentrate, to assess pollutant buildup and validate a multispecies flow model.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Design</div>
+          <div class="stage-text">Modeled a 15m × 10m garage, a Honda Civic (2018, 1.5L) exhaust geometry, and ventilation fan/jet housing in ANSYS DesignModeler, then generated a refined tetrahedral mesh around the car body and exhaust outlet.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Analysis</div>
+          <div class="stage-text">Solved coupled species transport in Fluent using a Lattice Boltzmann-based multi-fluid approach, tracking mass fractions of CO2, H2O, N2, O2, and CO, with convergence checked via scaled residuals and flux/mass balance reports.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Result</div>
+          <div class="stage-text">Contour plots show a clear pollutant concentration hotspot directly behind the exhaust outlet. Published in DogoRangsang Research Journal (UGC CARE Group I), Vol-13, Issue-3, March 2023.</div>
+        </div>
+        <div class="stack">
+          <span>ANSYS Fluent</span>
+          <span>CFD</span>
+          <span>Multispecies Flow</span>
+          <span>Lattice Boltzmann Method</span>
+        </div>
+        <div class="files">
+          <a href="bachelor_thesis.pdf">Published Paper (PDF)</a>
         </div>
       </div>
     </div>
