@@ -166,6 +166,8 @@
     border-right:1px solid var(--paper-line);
   }
   .project-media img{max-width:100%; max-height:340px; display:block;}
+  .project-media.dual{flex-direction:column; gap:14px;}
+  .project-media.dual img{max-height:158px;}
   .project-content{padding:28px 30px;}
   .project-title{
     font-family:'Space Grotesk', sans-serif;
@@ -414,7 +416,7 @@
       <span>ANSYS Fluent, CFD</span>
     </div>
     <div class="project-body">
-     <div class="project-media">
+      <div class="project-media">
         <img src="cfd_idle_emissions.gif" alt="CFD velocity streamline animation of vehicle exhaust dispersion at idle">
       </div>
       <div class="project-content">
@@ -442,6 +444,44 @@
           <span>Lattice Boltzmann Method</span>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="project-strip">
+      <span>Drawing No. PORT-005</span>
+      <span>ANSYS Fluent, CHT</span>
+    </div>
+    <div class="project-body">
+      <div class="project-media dual">
+        <img src="8cellmeshed.png" alt="8-cell battery module mesh with cooling plate, isometric view">
+        <img src="flow_animated.gif" alt="Animated coolant pathlines through serpentine cooling channel, colored by velocity magnitude">
+      </div>
+      <div class="project-content">
+        <div class="project-title">EV Battery Pack Cooling Plate — Conjugate Heat Transfer Analysis</div>
+        <div class="stage">
+          <div class="stage-label">Requirement</div>
+          <div class="stage-text">Evaluate whether a liquid-cooled plate can hold an 8-cell 18650 battery module near coolant temperature under sustained heat generation, as part of an EV battery pack thermal management study.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Design</div>
+          <div class="stage-text">Scoped an 8-cell (2×4) sub-assembly from a full 32-cell reference pack, trimmed in SolidWorks. Modeled a simplified 3-loop serpentine coolant channel directly beneath the cells, sized to a 6mm hydraulic diameter and built to align with the existing assembly's coordinate system.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Analysis</div>
+          <div class="stage-text">Solved a coupled solid-fluid (CHT) model in ANSYS Fluent: laminar water-glycol 50:50 coolant (14°C inlet, 0.44 m/s) through the channels, bonded thermal contact between cells and plate, and a volumetric heat source on each cell. Convergence confirmed via scaled residuals and direct volume-integral checks on solved temperature fields.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Result</div>
+          <div class="stage-text">Cell temperatures stayed within hundredths of a degree of the coolant inlet temperature even under an aggressive heat load, confirming the cooling plate design is not the thermal bottleneck. Pathline traces show stable, attached flow through all three U-turns with no recirculation.</div>
+        </div>
+        <div class="stack">
+          <span>ANSYS Fluent</span>
+          <span>Conjugate Heat Transfer</span>
+          <span>SolidWorks</span>
+          <span>Battery Thermal Management</span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="sheet-label" id="skills">
     <div class="dim-line"></div>
