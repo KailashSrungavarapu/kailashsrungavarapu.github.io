@@ -166,8 +166,25 @@
     border-right:1px solid var(--paper-line);
   }
   .project-media img{max-width:100%; max-height:340px; display:block;}
-  .project-media.dual{flex-direction:column; gap:14px;}
-  .project-media.dual img{max-height:158px;}
+  .media-switcher{width:100%; display:flex; flex-direction:column; align-items:center; gap:14px;}
+  .media-switcher .slide{display:none; width:100%; align-items:center; justify-content:center;}
+  .media-switcher .slide.active{display:flex;}
+  .media-switcher .slide img{max-width:100%; max-height:300px; display:block;}
+  .media-tabs{display:flex; gap:8px;}
+  .media-tabs button{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:6px 12px;
+    border:1.5px solid var(--ink);
+    background:var(--white);
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:background .15s, color .15s;
+  }
+  .media-tabs button.active{background:var(--ink); color:var(--white);}
+  .media-tabs button:hover{background:var(--ink); color:var(--white);}
   .project-content{padding:28px 30px;}
   .project-title{
     font-family:'Space Grotesk', sans-serif;
@@ -452,9 +469,15 @@
       <span>ANSYS Fluent, CHT</span>
     </div>
     <div class="project-body">
-      <div class="project-media dual">
-        <img src="8cellmeshed.png" alt="8-cell battery module mesh with cooling plate, isometric view">
-        <img src="flow_animated.gif" alt="Animated coolant pathlines through serpentine cooling channel, colored by velocity magnitude">
+      <div class="project-media">
+        <div class="media-switcher" id="port005-media">
+          <div class="slide active" data-slide="0"><img src="8cellmeshed.png" alt="8-cell battery module mesh with cooling plate, isometric view"></div>
+          <div class="slide" data-slide="1"><img src="flow_animated.gif" alt="Animated coolant pathlines through serpentine cooling channel, colored by velocity magnitude"></div>
+          <div class="media-tabs">
+            <button class="active" onclick="switchMedia('port005-media',0,this)">Mesh</button>
+            <button onclick="switchMedia('port005-media',1,this)">Flow</button>
+          </div>
+        </div>
       </div>
       <div class="project-content">
         <div class="project-title">EV Battery Pack Cooling Plate — Conjugate Heat Transfer Analysis</div>
@@ -479,6 +502,49 @@
           <span>Conjugate Heat Transfer</span>
           <span>SolidWorks</span>
           <span>Battery Thermal Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="project-strip">
+      <span>Drawing No. PORT-006</span>
+      <span>ANSYS Mechanical, FEA</span>
+    </div>
+    <div class="project-body">
+      <div class="project-media">
+        <div class="media-switcher" id="port006-media">
+          <div class="slide active" data-slide="0"><img src="control_arm_stress.png" alt="Control arm von Mises stress contour under combined bump and cornering load"></div>
+          <div class="slide" data-slide="1"><img src="control_arm_safety_factor.png" alt="Control arm safety factor contour showing overload region"></div>
+          <div class="media-tabs">
+            <button class="active" onclick="switchMedia('port006-media',0,this)">Stress</button>
+            <button onclick="switchMedia('port006-media',1,this)">Safety Factor</button>
+          </div>
+        </div>
+      </div>
+      <div class="project-content">
+        <div class="project-title">Suspension Control Arm — Static Structural FEA</div>
+        <div class="stage">
+          <div class="stage-label">Requirement</div>
+          <div class="stage-text">Check whether a cast aluminum lower control arm survives a representative worst-case wheel load — a combined vertical bump and lateral cornering event — sourced as a complex single-part casting with two chassis-side bushing eyes and one wheel-side ball-joint eye.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Design</div>
+          <div class="stage-text">Assigned A356-T6 cast aluminum properties (186 MPa yield, 72.4 GPa modulus) in ANSYS Engineering Data. Fixed supports at both chassis bushing eyes, load applied at the ball-joint eye: 13,244 N vertical (≈3g bump at a 450 kg corner weight) combined with 5,297 N lateral (≈1.2g cornering).</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Analysis</div>
+          <div class="stage-text">Solved as static structural with large deflection enabled once initial results showed non-trivial deformation. Cross-checked the FEA deflection against a hand-calculated cantilever-beam estimate using the part's actual cross-section before trusting the result.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Result</div>
+          <div class="stage-text">Max von Mises stress reached 1.55 GPa — about 8x the material's yield strength — with a minimum safety factor of 0.12 across most of the arm's rib section. The casting cannot survive this load case in A356-T6 aluminum at this cross-section; a thicker rib section or a switch to steel would be required to bring the safety factor above 1.</div>
+        </div>
+        <div class="stack">
+          <span>ANSYS Mechanical</span>
+          <span>Static Structural FEA</span>
+          <span>Large Deflection</span>
+          <span>Automotive Suspension</span>
         </div>
       </div>
     </div>
@@ -513,5 +579,16 @@
     <span><a href="mailto:kailashsrungavarapu@gmail.com">kailashsrungavarapu@gmail.com</a> · <a href="https://linkedin.com/in/kailash" target="_blank">LinkedIn</a></span>
   </div>
 </footer>
+<script>
+function switchMedia(id, idx, btn){
+  var wrap = document.getElementById(id);
+  var slides = wrap.querySelectorAll('.slide');
+  var tabs = wrap.querySelectorAll('.media-tabs button');
+  slides.forEach(function(s){ s.classList.remove('active'); });
+  tabs.forEach(function(t){ t.classList.remove('active'); });
+  wrap.querySelector('.slide[data-slide="'+idx+'"]').classList.add('active');
+  btn.classList.add('active');
+}
+</script>
 </body>
 </html>
