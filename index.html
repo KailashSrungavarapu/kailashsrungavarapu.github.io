@@ -549,6 +549,51 @@
       </div>
     </div>
   </div>
+    <div class="project">
+    <div class="project-strip">
+      <span>Drawing No. PORT-007</span>
+      <span>SolidWorks, Mechanical Integration</span>
+    </div>
+    <div class="project-body">
+      <div class="project-media">
+        <div class="media-switcher" id="port007-media">
+          <div class="slide active" data-slide="0"><img src="battery_casing_iso.png" alt="Battery casing with 13 divider walls forming 12 cell row channels, busbar notches cut into wall tops"></div>
+          <div class="slide" data-slide="1"><img src="outer_box_mounting_iso.png" alt="Outer box interior showing 6 mounting bosses for vehicle attachment"></div>
+          <div class="slide" data-slide="2"><img src="lid_full_iso.png" alt="Outer box lid showing 14-hole fastener bolt pattern and service disconnect cutout"></div>
+          <div class="media-tabs">
+            <button class="active" onclick="switchMedia('port007-media',0,this)">Casing</button>
+            <button onclick="switchMedia('port007-media',1,this)">Mounting</button>
+            <button onclick="switchMedia('port007-media',2,this)">Lid</button>
+          </div>
+        </div>
+      </div>
+      <div class="project-content">
+        <div class="project-title">EV Battery Pack — Mechanical Integration</div>
+        <div class="stage">
+          <div class="stage-label">Requirement</div>
+          <div class="stage-text">Sourced a complex GrabCAD battery pack assembly (Outer Box, Lid, Casing, 731×356×206mm envelope) and scoped a full mechanical integration package: vehicle mounting, lid fastening, busbar routing, and a high-voltage service disconnect — demonstrating DFM/DFA judgment on top of an existing enclosure design.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Design</div>
+          <div class="stage-text">Cut 6 Ø10mm mounting bosses into the Outer Box for vehicle-side attachment and a 14-hole Ø6mm fastener pattern into the Lid, referenced off the lid's inner flange rectangle for consistent, symmetric bolt spacing. Rebuilt the internal Casing from scratch as a solid body — 13 divider walls at 27.5mm pitch forming 12 cell-row channels sized for a 372-cell 21700 pack (12 rows × 31 cells) — after the sourced casing proved to be a single fused, non-manifold surface body unsuitable for direct modification. Added a busbar routing notch (14×5mm) to each wall top for series interconnects between rows, and a service disconnect cutout on the lid (Ø45mm bore + 4-hole M4 mounting flange on a 55mm bolt circle) positioned clear of the fastener pattern for HV isolation during maintenance.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Analysis</div>
+          <div class="stage-text">Diagnosed and worked around two distinct import defects in the sourced STEP/native files: open-shell (non-solid) geometry inherited from the original SolidWorks surface export, and a genuinely non-manifold casing surface that failed Knit Surface with "more than two sheet bodies at a single edge junction." Used Trim Surface as a solid-conversion workaround for the Outer Box and Lid, and independently regenerated the Casing as clean, extrudable solid geometry once the sourced surface proved unrepairable.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Result</div>
+          <div class="stage-text">Delivered a fully-integrated pack structure: vehicle mounting interface, symmetric lid fastening, a busbar-routed cell casing sized for 372 cells, and a clearly located HV service disconnect — each feature dimensioned and cross-checked against the part's actual measured geometry rather than assumed nominal values.</div>
+        </div>
+        <div class="stack">
+          <span>SolidWorks</span>
+          <span>Surface Repair / Trim Surface</span>
+          <span>DFM / DFA</span>
+          <span>Battery Pack Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="sheet-label" id="skills">
     <div class="dim-line"></div>
     <h2>Skills</h2>
