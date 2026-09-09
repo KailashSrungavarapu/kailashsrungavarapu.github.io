@@ -593,6 +593,54 @@
         </div>
       </div>
     </div>
+   <div class="project">
+    <div class="project-strip">
+      <span>Drawing No. PORT-008</span>
+      <span>Python, 1D Thermodynamic Cycle Simulation</span>
+    </div>
+    <div class="project-body">
+      <div class="project-media">
+        <div class="media-switcher" id="port008-media">
+          <div class="slide active" data-slide="0"><img src="dual_cycle_pv.png" alt="P-V diagram of turbocharged diesel dual-cycle showing compression, heat addition, and expansion strokes"></div>
+          <div class="slide" data-slide="1"><img src="dual_cycle_ts.png" alt="T-s diagram of turbocharged diesel dual-cycle"></div>
+          <div class="slide" data-slide="2"><img src="dual_cycle_efficiency_sweep.png" alt="Thermal efficiency vs compression ratio for three cutoff ratios"></div>
+          <div class="media-tabs">
+            <button class="active" onclick="switchMedia('port008-media',0,this)">P-V</button>
+            <button onclick="switchMedia('port008-media',1,this)">T-s</button>
+            <button onclick="switchMedia('port008-media',2,this)">Efficiency Sweep</button>
+          </div>
+        </div>
+      </div>
+      <div class="project-content">
+        <div class="project-title">Turbocharged Diesel Dual-Cycle — 1D Thermodynamic Simulation</div>
+        <div class="stage">
+          <div class="stage-label">Requirement</div>
+          <div class="stage-text">Model a heavy-duty turbocharged diesel engine's thermodynamic cycle to demonstrate 1D system-level engine performance analysis — the thermodynamic process calculation and component optimization thinking behind system-simulation-focused engine R&D work (GT Suite-style 1D CFD), built in Python rather than proprietary licensed tools.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Design</div>
+          <div class="stage-text">Built an air-standard dual-cycle model: 5 state points spanning isentropic compression, constant-volume heat addition, constant-pressure heat addition, isentropic expansion, and constant-volume heat rejection — a closer match to real diesel combustion's two-phase (premixed + diffusion) burn than the idealized pure-Diesel cycle. Added a simple isentropic-efficiency turbocharger compressor model ahead of the cycle to reflect how boost pressure raises intake density and air/fuel mass per cycle. Parameters (17:1 compression ratio, 2.2 boost pressure ratio, 1.6 cutoff ratio) representative of a modern heavy-duty truck diesel engine.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Analysis</div>
+          <div class="stage-text">Computed all 5 state points (P, T, V) from first principles, then cross-checked thermal efficiency two independent ways — direct energy balance and the closed-form analytical dual-cycle formula — confirming exact agreement (64.96%) before trusting the result. Swept compression ratio 10-24 across three cutoff ratios to verify the model reproduces known combustion-engineering trends.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Result</div>
+          <div class="stage-text">Baseline case reached 64.96% air-standard thermal efficiency — correctly higher than a real engine's actual brake thermal efficiency (40-46% for modern HD diesels), since the air-standard model excludes friction, heat transfer, and combustion losses by design; this gap was explicitly checked, not overlooked. The efficiency sweep confirms the right qualitative sensitivities to compression ratio and cutoff ratio, the same trade-offs explored during real engine calibration.</div>
+        </div>
+        <div class="stack">
+          <span>Python</span>
+          <span>NumPy / Matplotlib</span>
+          <span>Air-Standard Cycle Analysis</span>
+          <span>Turbocharging</span>
+          <span>HD Diesel</span>
+        </div>
+        <div class="files">
+          <a href="dual_cycle.py">Simulation Script (.py)</a>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="sheet-label" id="skills">
     <div class="dim-line"></div>
