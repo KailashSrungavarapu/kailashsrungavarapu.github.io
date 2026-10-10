@@ -652,17 +652,12 @@
     <div class="project-body">
       <div class="project-media">
         <div class="media-switcher" id="port009-media">
-          <div class="slide active" data-slide="0"><img src="fixture_drawing.png" alt="Dimensioned drawing of the battery pack vibration test fixture plate with top view, section A-A, hole schedule and title block"></div>
-          <div class="slide" data-slide="1"><img src="daq_wiring_diagram.png" alt="DAQ and control wiring diagram for the battery pack vibration test"></div>
-          <div class="slide" data-slide="2"><img src="test_report.png" alt="Processed vibration test report on synthetic data: transmissibility, sweep, thermocouples and CAN-decoded BMS temperatures"></div>
-          <div class="slide" data-slide="3"><img src="fea_mode1_labeled.png" alt="ANSYS modal analysis: first mode shape of the fixture plate at 785.9 Hz"></div>
-          <div class="slide" data-slide="4"><video src="fea_mode1.mp4" autoplay loop muted playsinline controls aria-label="Animated first mode shape of the fixture plate, 785.9 Hz"></video></div>
+          <!-- TO ADD LATER (slides): fixture_drawing.png, daq_wiring_diagram.png, test_report.png -->
+          <div class="slide active" data-slide="0"><img src="fea_mode1_labeled.png" alt="ANSYS modal analysis: first mode shape of the fixture plate at 785.9 Hz"></div>
+          <div class="slide" data-slide="1"><video src="fea_mode1.mp4" autoplay loop muted playsinline controls aria-label="Animated first mode shape of the fixture plate, 785.9 Hz"></video></div>
           <div class="media-tabs">
-            <button class="active" onclick="switchMedia('port009-media',0,this)">Fixture Drawing</button>
-            <button onclick="switchMedia('port009-media',1,this)">DAQ Wiring</button>
-            <button onclick="switchMedia('port009-media',2,this)">Data Report</button>
-            <button onclick="switchMedia('port009-media',3,this)">FEA Mode 1</button>
-            <button onclick="switchMedia('port009-media',4,this)">FEA Animation</button>
+            <button class="active" onclick="switchMedia('port009-media',0,this)">FEA Mode 1</button>
+            <button onclick="switchMedia('port009-media',1,this)">FEA Animation</button>
           </div>
         </div>
       </div>
@@ -696,7 +691,7 @@
         </div>
         <div class="files">
           <a href="battery_test_fixture_plate.STEP">Fixture CAD (.step)</a>
-          <a href="Battery_Pack_Vibration_Test_SOP.docx">Test SOP (.docx)</a>
+          <!-- TO ADD LATER: <a href="Battery_Pack_Vibration_Test_SOP.docx">Test SOP (.docx)</a> -->
           <a href="process_test_data.py">Data Script (.py)</a>
           <a href="hole_table.csv">Hole Table (.csv)</a>
           <a href="fixture_modal_FEA_report.pdf">FEA Report (.pdf)</a>
