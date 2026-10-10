@@ -170,6 +170,7 @@
   .media-switcher .slide{display:none; width:100%; align-items:center; justify-content:center;}
   .media-switcher .slide.active{display:flex;}
   .media-switcher .slide img{max-width:100%; max-height:300px; display:block;}
+  .media-switcher .slide video{max-width:100%; max-height:300px; display:block;}
   .media-tabs{display:flex; gap:8px;}
   .media-tabs button{
     font-family:'JetBrains Mono', monospace;
@@ -549,7 +550,7 @@
       </div>
     </div>
   </div>
-      <div class="project">
+  <div class="project">
     <div class="project-strip">
       <span>Drawing No. PORT-007</span>
       <span>SolidWorks, Mechanical Integration</span>
@@ -593,7 +594,8 @@
         </div>
       </div>
     </div>
-   <div class="project">
+  </div>
+  <div class="project">
     <div class="project-strip">
       <span>Drawing No. PORT-008</span>
       <span>Python, 1D Thermodynamic Cycle Simulation</span>
@@ -638,6 +640,66 @@
         </div>
         <div class="files">
           <a href="dual_cycle.py">Simulation Script (.py)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <div class="project-strip">
+      <span>Drawing No. PORT-009</span>
+      <span>SolidWorks, Python, DAQ / CAN, SOP</span>
+    </div>
+    <div class="project-body">
+      <div class="project-media">
+        <div class="media-switcher" id="port009-media">
+          <div class="slide active" data-slide="0"><img src="fixture_drawing.png" alt="Dimensioned drawing of the battery pack vibration test fixture plate with top view, section A-A, hole schedule and title block"></div>
+          <div class="slide" data-slide="1"><img src="daq_wiring_diagram.png" alt="DAQ and control wiring diagram for the battery pack vibration test"></div>
+          <div class="slide" data-slide="2"><img src="test_report.png" alt="Processed vibration test report on synthetic data: transmissibility, sweep, thermocouples and CAN-decoded BMS temperatures"></div>
+          <div class="slide" data-slide="3"><img src="fea_mode1_labeled.png" alt="ANSYS modal analysis: first mode shape of the fixture plate at 785.9 Hz"></div>
+          <div class="slide" data-slide="4"><video src="fea_mode1.mp4" autoplay loop muted playsinline controls aria-label="Animated first mode shape of the fixture plate, 785.9 Hz"></video></div>
+          <div class="media-tabs">
+            <button class="active" onclick="switchMedia('port009-media',0,this)">Fixture Drawing</button>
+            <button onclick="switchMedia('port009-media',1,this)">DAQ Wiring</button>
+            <button onclick="switchMedia('port009-media',2,this)">Data Report</button>
+            <button onclick="switchMedia('port009-media',3,this)">FEA Mode 1</button>
+            <button onclick="switchMedia('port009-media',4,this)">FEA Animation</button>
+          </div>
+        </div>
+      </div>
+      <div class="project-content">
+        <div class="project-title">Battery Pack Vibration Test: Fixture, SOP and Data Pipeline</div>
+        <div class="stage">
+          <div class="stage-label">Requirement</div>
+          <div class="stage-text">Prepare a vibration test of the PORT-007 battery pack: a fixture to carry the pack on a shaker, an instrumentation and wiring plan, a written test procedure, and a repeatable way to turn the logged data into a report. Built as a vehicle-testing exercise covering test set-up, measurement, safety and documentation.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Design</div>
+          <div class="stage-text">Modelled an 840 x 460 x 40 mm Al 6061-T6 fixture plate in SolidWorks (41.62 kg): 6 tapped M10 blind holes take the pack from the top, 24 tapped M10 blind holes take the shaker interface from the underside, so no bolt heads or nuts sit under the pack. Exported as STEP with a hole-coordinate table. Specified three triaxial IEPE accelerometers (plate control, lid, base), 8 K-type thermocouples and a BMS CAN tap, with a shaker controller abort linked to the amplifier E-stop loop.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Analysis</div>
+          <div class="stage-text">Modal analysis in ANSYS Mechanical on the STEP model: Al 6061-T6 plate, the 60 kg pack as a deformable point mass 143 mm above the top face, and the plate fixed at the 24 underside bolt holes, a conservative case with no support from the slip table. First mode 786 Hz, 3.9x the 200 Hz sizing band; refining the mesh from the default to 6 mm (126,008 nodes) changed it by 1.9%, so the result is converged. A simply-supported plate hand estimate (382 Hz) came out lower, as expected for a lower bound. M10 8.8 bolts checked at a 10 g quasi-static load with about 47 N m torque; thread strip in 6061 gives a margin near 2, so steel thread inserts are recommended. The Python pipeline (SciPy Welch/CSD, cantools DBC decoding) was validated on synthetic data with a planted 33 Hz lid resonance and recovered it.</div>
+        </div>
+        <div class="stage">
+          <div class="stage-label">Result</div>
+          <div class="stage-text">Delivered a 3-page SOP covering mounting, pre-test checks, execution, abort criteria, post-test checks and records, plus the CAD, wiring diagram and processing script. Assumptions stated openly: 60 kg pack mass, a pack hole pattern based on an assumed footprint, bolt joints idealised as fixed in the FEA, and test parameters from secondary sources that must be confirmed against the official standard text. The report plots use synthetic data; no physical test was run.</div>
+        </div>
+        <div class="stack">
+          <span>SolidWorks</span>
+          <span>Al 6061-T6</span>
+          <span>ANSYS Modal</span>
+          <span>IEPE / Thermocouple DAQ</span>
+          <span>CAN / DBC</span>
+          <span>SciPy</span>
+          <span>Vibration Testing</span>
+          <span>SOP</span>
+        </div>
+        <div class="files">
+          <a href="battery_test_fixture_plate.STEP">Fixture CAD (.step)</a>
+          <a href="Battery_Pack_Vibration_Test_SOP.docx">Test SOP (.docx)</a>
+          <a href="process_test_data.py">Data Script (.py)</a>
+          <a href="hole_table.csv">Hole Table (.csv)</a>
+          <a href="fixture_modal_FEA_report.pdf">FEA Report (.pdf)</a>
         </div>
       </div>
     </div>
